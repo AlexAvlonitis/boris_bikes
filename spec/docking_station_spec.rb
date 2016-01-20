@@ -51,13 +51,11 @@ describe DockingStation do
     expect(subject.release_bike).to eq nil
   end
 
-
   it 'releases working bikes' do
     allow(bike).to receive(:working?).and_return(true)
     subject.dock_bike(bike)
     bike = subject.release_bike
     expect(bike).to be_working
   end
-
 
 end
