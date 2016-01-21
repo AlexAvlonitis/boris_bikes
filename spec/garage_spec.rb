@@ -11,6 +11,6 @@ van = Van.new
 station.dock(bike1)
 station.dock(bike2)
 van.collect_bikes(station)
-expect(garage.deliver_broken_bikes_to_garage(van)).to eq van.broken_bikes
+expect(garage.deliver_broken_bikes_to_garage(van)).to eq van.broken_bikes.flatten
   end
 end
