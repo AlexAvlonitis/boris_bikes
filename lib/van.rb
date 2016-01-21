@@ -2,14 +2,16 @@ require 'docking_station'
 
 class Van
 
-  def initialize
-    @broken_bikes = []
-  end
+  attr_accessor :bikes, :capacity
+	DEFAULT_CAPACITY = 20
 
-  def collect_broken_bikes(bike)
-    raise "This bike is not broken" if bike.working?
-    @broken_bikes << bike
-    
-  end
+	def initialize(capacity = DEFAULT_CAPACITY)
+		@capacity = capacity
+	  @bikes = []
+	end
+
+	def load(*broken_bikes)
+		@bikes = broken_bikes
+	end
 
 end

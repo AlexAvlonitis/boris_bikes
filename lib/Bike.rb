@@ -1,5 +1,3 @@
-require_relative 'docking_station.rb'
-
 class Bike
 
 	def initialize
@@ -13,6 +11,5 @@ class Bike
 	def broken
 		@working = false
 	end
-
 
 end

@@ -4,12 +4,11 @@ require 'docking_station'
 describe Van do
   subject(:Van) {described_class.new}
 
-  it { is_expected.to respond_to :collect_broken_bikes }
+  it { is_expected.to respond_to :load }
 
-  describe "#collect_broken_bikes" do
-    it "Receives broken bikes" do
-      subject.collect_broken_bikes(bike)
-      expect(bike).not_to be_working
+  describe "#load" do
+    it "loads broken bikes from the docking station" do
+      expect (subject.load(broken_bikes)).to be_an Array
     end
   end
 

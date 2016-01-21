@@ -32,7 +32,4 @@ class DockingStation
 		@bikes.empty?
 	end
 
-	# def view_dock
-	# 	@bikes_in_dock
-	# end
 end
