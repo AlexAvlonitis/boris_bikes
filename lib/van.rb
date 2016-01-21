@@ -1,7 +1,4 @@
-require 'docking_station'
-
 class Van
-
   attr_accessor :bikes, :capacity
 	DEFAULT_CAPACITY = 20
 
@@ -10,8 +7,17 @@ class Van
 	  @bikes = []
 	end
 
-	def load(*broken_bikes)
-		@bikes = broken_bikes
+	def loading(bikes)
+		@bikes = bikes
 	end
+
+  def unload
+    broken_bikes = []
+		@bikes.each do |bike|
+				broken_bikes << bike
+		end
+    @bikes.clear
+    broken_bikes
+  end
 
 end

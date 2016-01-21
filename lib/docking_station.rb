@@ -1,5 +1,3 @@
-require_relative 'bike.rb'
-
 class DockingStation
 
 	attr_accessor :bikes, :capacity
@@ -20,6 +18,17 @@ class DockingStation
 	def dock(bike)
 		raise "The dock is full" if full?
 		@bikes << bike
+	end
+
+	def broken_bikes
+		broken_bikes = []
+		@bikes.each do |bike|
+			if bike.working? == false
+				broken_bikes << bike
+			end
+		end
+		@bikes = @bikes - broken_bikes
+		broken_bikes
 	end
 
 	private
