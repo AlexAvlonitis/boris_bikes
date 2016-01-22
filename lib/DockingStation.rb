@@ -29,13 +29,17 @@ end
 	def dock(bike)
 		fail 'Docking station full' if full?
 		@bikes << bike
-
 	end
 
 	def broken_bikes
 		broken_bikes = bikes.select { |bike| bike if bike.working == false}
 		@bikes = bikes.select! {|bike| bike if bike.working }
 		broken_bikes
+	end
+
+	def receive_bikes(fixed_bikes)
+		fixed_bikes.each {|bike| @bikes << bike}
+		fixed_bikes
 	end
 
 	private

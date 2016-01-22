@@ -1,5 +1,3 @@
-require 'bike'
-
 class Garage
 
   def broken_bikes

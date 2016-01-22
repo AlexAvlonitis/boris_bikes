@@ -4,7 +4,7 @@ describe Van do
 
   let(:docking_station) { double :docking_station }
 
-    describe 'responds to collect bikes' do
+  describe 'responds to collect bikes' do
     it {is_expected.to respond_to(:collect_bikes).with(1).argument}
   end
 
@@ -41,4 +41,13 @@ describe Van do
     garage.store_bikes([bike])
     expect(subject.collect_bikes(garage.fix_bikes)).to eq [bike]
   end
+
+  it "after bike delivery empty the array" do
+    subject.collect_bikes([Bike.new, Bike.new])
+    ds = DockingStation.new
+    ds.receive_bikes(subject.deliver_bikes)
+    expect(subject.bikes).to eq []
+
+  end
+
 end

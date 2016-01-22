@@ -68,4 +68,13 @@ let(:bike2) { double :bike2 }
 			expect(subject.bikes).to eq [bike]
 		end
 	end
+
+	describe '#receive_bikes' do
+		it "receives bikes from the van" do
+			bike = Bike.new
+			bike2 = Bike.new
+			received_bikes = subject.receive_bikes([bike, bike2])
+			expect(received_bikes).to eq [bike, bike2]
+		end
+	end
 end
