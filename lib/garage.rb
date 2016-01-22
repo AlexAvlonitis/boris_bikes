@@ -5,6 +5,6 @@ class Garage
   end
 
   def fix_bikes
-
+    
   end
 end
