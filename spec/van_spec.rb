@@ -34,4 +34,11 @@ describe Van do
     subject.collect_bikes(station.broken_bikes)
     expect(subject.deliver_bikes).to eq [bike1, bike2]
   end
+
+  it "collects working bikes from the garage" do
+    garage = Garage.new
+    bike = Bike.new
+    garage.store_bikes([bike])
+    expect(subject.collect_bikes(garage.fix_bikes)).to eq [bike]
+  end
 end

@@ -22,7 +22,14 @@ describe Garage do
       subject.store_bikes([bike,bike2])
       expect(subject.fix_bikes[0].working).to eq true
     end
+
+    it 'removes the broken bikes from the array' do
+      subject.store_bikes([Bike.new])
+      subject.fix_bikes
+      expect(subject.broken_bikes).to eq []
+    end
   end
+
 
 
 

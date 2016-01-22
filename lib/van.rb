@@ -1,19 +1,19 @@
 
 class Van
-  attr_reader :broken_bikes
+  attr_reader :bikes
 
   def initialize
-    @broken_bikes = []
+    @bikes = []
   end
 
-  def collect_bikes(broken_bikes)
-    @broken_bikes = broken_bikes
+  def collect_bikes(bikes)
+    @bikes = bikes
   end
 
   def deliver_bikes
     to_deliver = []
-    @broken_bikes.each {|bike| to_deliver << bike }
-    @broken_bikes.clear
+    @bikes.each {|bike| to_deliver << bike }
+    @bikes.clear
     to_deliver
   end
 
