@@ -19,8 +19,11 @@ describe Garage do
       bike2 = Bike.new
       bike.broken
       bike2.broken
-      expect(subject.fix_bikes).to satisfy {|bike| bike.working == true }
+      subject.store_bikes([bike,bike2])
+      expect(subject.fix_bikes[0].working).to eq true
     end
   end
+
+
 
 end
