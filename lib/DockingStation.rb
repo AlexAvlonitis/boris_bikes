@@ -3,7 +3,7 @@ require_relative 'van'
 require_relative 'garage'
 class DockingStation
 
-attr_reader :bikes, :capacity
+attr_reader :capacity
 
 DEFAULT_CAPACITY=20
 
@@ -12,9 +12,13 @@ def initialize(capacity=DEFAULT_CAPACITY)
 	@capacity = capacity
 end
 
+def bikes
+	@bikes.dup
+end
+
 	def release_bike
     fail "No bikes available" if empty?
-  		for i in 0...@bikes.size
+  		for i in 0..@bikes.size
       bike = @bikes[i]
       return @bikes.delete_at(i) if bike.working
 		end
@@ -26,6 +30,10 @@ end
 		fail 'Docking station full' if full?
 		@bikes << bike
 
+	end
+
+	def broken_bikes
+		bikes.select { |bike| bike if bike.working == false}
 	end
 
 	private

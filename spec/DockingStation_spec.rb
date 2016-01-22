@@ -45,4 +45,17 @@ let(:bike2) { double :bike2 }
 			expect(subject.release_bike).to eq bike2
 		end
 	end
+
+	describe '#broken_bikes' do
+		it {is_expected.to respond_to :broken_bikes}
+
+		it 'returns the broken bikes' do
+			broken_bike = Bike.new
+			bike = Bike.new
+			broken_bike.broken
+			subject.dock(broken_bike)
+			subject.dock(bike)
+			expect(subject.broken_bikes).to eq [broken_bike]
+		end
+	end
 end
