@@ -13,4 +13,14 @@ describe Garage do
     end
   end
 
+  describe '#fix_bikes' do
+    it 'fixes the bikes' do
+      bike = Bike.new
+      bike2 = Bike.new
+      bike.broken
+      bike2.broken
+      expect(subject.fix_bikes([bike, bike2])).to satisfy {|bike| bike.working == true}
+    end
+  end
+
 end
