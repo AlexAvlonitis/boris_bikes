@@ -18,6 +18,6 @@ describe Van do
     station.dock(bike1)
     station.dock(bike2)
     station.dock(bike3)
-    expect(subject.collect_bikes(station)).to eq [bike1, bike2]
+    expect(subject.collect_bikes(station.broken_bikes)).to eq [bike1, bike2]
   end
 end

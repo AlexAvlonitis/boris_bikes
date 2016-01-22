@@ -6,8 +6,7 @@ class Van
     @broken_bikes = []
   end
 
-  def collect_bikes(dockingstation)
-    @broken_bikes << dockingstation.bikes.select { |bike| bike if bike.working == false }
-    @broken_bikes.flatten
+  def collect_bikes(broken_bikes)
+    @broken_bikes = broken_bikes
   end
 end

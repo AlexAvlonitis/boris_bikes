@@ -57,5 +57,15 @@ let(:bike2) { double :bike2 }
 			subject.dock(bike)
 			expect(subject.broken_bikes).to eq [broken_bike]
 		end
+
+		it 'deletes the broken bikes' do
+			broken_bike = Bike.new
+			bike = Bike.new
+			broken_bike.broken
+			subject.dock(broken_bike)
+			subject.dock(bike)
+			subject.broken_bikes
+			expect(subject.bikes).to eq [bike]
+		end
 	end
 end

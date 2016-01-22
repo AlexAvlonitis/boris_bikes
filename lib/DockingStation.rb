@@ -33,7 +33,9 @@ end
 	end
 
 	def broken_bikes
-		bikes.select { |bike| bike if bike.working == false}
+		broken_bikes = bikes.select { |bike| bike if bike.working == false}
+		@bikes = bikes.select! {|bike| bike if bike.working }
+		broken_bikes
 	end
 
 	private
