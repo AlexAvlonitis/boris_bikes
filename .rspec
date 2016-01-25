@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 --color
+=======
+--color --format documentation
+>>>>>>> day-four
 --require spec_helper
